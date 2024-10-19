@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator Form</title>
+    <script src="calculation.js"></script>
+</head>
+<body>
+<form id="calculator-form" action="#" onsubmit="calculate(); return false;">
+    <input type="text" name="operand1" placeholder=" "><br>
+    <input type="radio" id="+" name="operator-2" value="+">
+    <label for="+">Addition</label><br>
+    <input type="radio" id="-" name="operator-2" value="-">
+    <label for="+">Substraction</label><br>
+    <input type="radio" id="*" name="operator-2" value="*">
+    <label for="+">Multiplication</label><br>
+    <input type="radio" id="/" name="operator-2" value="/">
+    <label for="+">Distribution</label><br>
+    <input type="text" name="operand2" placeholder=" ">
+    <input type="submit" value="=" maxlength="2" size="2">
+    <input type="text" name="result" size="2" placeholder=" " readonly>
+</form>
+</body>
+</html>
