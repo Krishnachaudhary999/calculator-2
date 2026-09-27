@@ -3,23 +3,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculator Form</title>
+    <title>Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            width: 300px;
+        }
+        h2 {
+            margin-top: 0;
+            text-align: center;
+        }
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 8px;
+            margin: 6px 0;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="submit"], button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover, button:hover {
+            background-color: #45a049;
+        }
+        #error-msg {
+            color: red;
+            font-size: 0.9em;
+            text-align: center;
+        }
+        #logout-btn {
+            background-color: #e74c3c;
+            margin-bottom: 10px;
+        }
+        #logout-btn:hover {
+            background-color: #c0392b;
+        }
+        .radio-group {
+            margin: 8px 0;
+        }
+        #calc-result {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-top: 6px;
+        }
+    </style>
     <script src="calculation.js"></script>
 </head>
 <body>
-<form id="calculator-form" action="#" onsubmit="calculate(); return false;">
-    <input type="text" name="operand1" placeholder=" "><br>
-    <input type="radio" id="+" name="operator-2" value="+">
-    <label for="+">Addition</label><br>
-    <input type="radio" id="-" name="operator-2" value="-">
-    <label for="+">Substraction</label><br>
-    <input type="radio" id="*" name="operator-2" value="*">
-    <label for="+">Multiplication</label><br>
-    <input type="radio" id="/" name="operator-2" value="/">
-    <label for="+">Distribution</label><br>
-    <input type="text" name="operand2" placeholder=" ">
-    <input type="submit" value="=" maxlength="2" size="2">
-    <input type="text" name="result" size="2" placeholder=" " readonly>
-</form>
+
+<!-- Login Section -->
+<div class="container" id="login-section">
+    <h2>Login</h2>
+    <form id="login-form" onsubmit="login(); return false;">
+        <input type="text" id="username" placeholder="Username" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <p id="error-msg"></p>
+        <input type="submit" value="Login">
+    </form>
+</div>
+
+<!-- Calculator Section -->
+<div class="container" id="calculator-section" style="display:none;">
+    <button id="logout-btn" onclick="logout()">Logout</button>
+    <h2>Calculator</h2>
+    <form id="calculator-form" onsubmit="calculate(); return false;">
+        <input type="text" name="operand1" placeholder="First number">
+        <div class="radio-group">
+            <input type="radio" id="add" name="operator-2" value="+">
+            <label for="add">Addition (+)</label>
+        </div>
+        <div class="radio-group">
+            <input type="radio" id="sub" name="operator-2" value="-">
+            <label for="sub">Subtraction (-)</label>
+        </div>
+        <div class="radio-group">
+            <input type="radio" id="mul" name="operator-2" value="*">
+            <label for="mul">Multiplication (*)</label>
+        </div>
+        <div class="radio-group">
+            <input type="radio" id="div" name="operator-2" value="/">
+            <label for="div">Division (/)</label>
+        </div>
+        <input type="text" name="operand2" placeholder="Second number">
+        <input type="submit" value="Calculate">
+        <input type="text" id="calc-result" name="result" placeholder="Result" readonly>
+    </form>
+</div>
+
 </body>
 </html>
